@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { CheckCircle, Sparkles, Award } from 'lucide-react';
 import type { Plan } from '../types';
@@ -12,7 +11,7 @@ const plans = {
   FREE: {
     name: 'Grátis',
     price: 'R$0',
-    icon: <Sparkles className="w-8 h-8 mx-auto mb-4 text-gray-500" />,
+    icon: <Sparkles className="w-8 h-8 mx-auto mb-4 text-gray-500 dark:text-gray-400" />,
     features: [
       '5 buscas por dia',
       'Salvar até 5 versículos',
@@ -20,8 +19,8 @@ const plans = {
     ],
     cta: 'Seu Plano Atual',
     style: {
-      card: 'border-gray-300',
-      button: 'bg-gray-200 text-gray-600 cursor-default',
+      card: 'border-gray-300 dark:border-slate-600',
+      button: 'bg-gray-200 dark:bg-slate-600 text-gray-600 dark:text-gray-300 cursor-default',
     },
   },
   BASIC: {
@@ -61,19 +60,19 @@ const plans = {
 const PlanSelector: React.FC<PlanSelectorProps> = ({ currentPlan, onSelectPlan }) => {
   return (
     <div id="plan-selector" className="mt-12 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-2">Nossos Planos</h2>
-        <p className="text-gray-600 mb-8">Escolha o plano que mais se encaixa com você.</p>
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">Nossos Planos</h2>
+        <p className="text-gray-600 dark:text-gray-300 mb-8">Escolha o plano que mais se encaixa com você.</p>
         <div className="grid md:grid-cols-3 gap-6">
             {(Object.keys(plans) as Plan[]).map(planKey => {
                 const plan = plans[planKey];
                 const isCurrent = currentPlan === planKey;
                 
                 return (
-                    <div key={planKey} className={`bg-white rounded-2xl shadow-lg p-8 border-2 ${isCurrent ? plan.style.card : 'border-transparent'} transition-all transform hover:scale-105`}>
+                    <div key={planKey} className={`bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 border-2 ${isCurrent ? plan.style.card : 'border-transparent'} transition-all transform hover:scale-105`}>
                         {plan.icon}
-                        <h3 className="text-2xl font-bold text-gray-800">{plan.name}</h3>
-                        <p className="font-semibold text-gray-600 my-3 text-lg">{plan.price}</p>
-                        <ul className="text-left space-y-2 text-gray-600 mb-8">
+                        <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100">{plan.name}</h3>
+                        <p className="font-semibold text-gray-600 dark:text-gray-300 my-3 text-lg">{plan.price}</p>
+                        <ul className="text-left space-y-2 text-gray-600 dark:text-gray-400 mb-8">
                             {plan.features.map(feat => (
                                 <li key={feat} className="flex items-start">
                                     <CheckCircle size={16} className="text-green-500 mr-2 mt-1 flex-shrink-0" />

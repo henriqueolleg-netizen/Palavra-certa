@@ -1,5 +1,6 @@
-
 export type Plan = 'FREE' | 'BASIC' | 'PRO';
+export type Page = 'home' | 'devotional' | 'saved' | 'settings';
+export type Theme = 'light' | 'dark' | 'system';
 
 export interface VerseResponse {
   verse: string;

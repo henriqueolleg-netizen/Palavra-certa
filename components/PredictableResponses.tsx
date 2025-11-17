@@ -60,17 +60,17 @@ const feelings = [
 
 const PredictableResponses: React.FC<PredictableResponsesProps> = ({ onFeelingSelect }) => {
   return (
-    <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 mb-6 animate-fadeIn">
-      <h3 className="font-semibold text-gray-800 mb-4 text-lg flex items-center gap-2">
-        <Compass size={20} className="text-purple-600" />
+    <div className="bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm rounded-2xl shadow-lg p-6 mb-6 animate-fadeIn">
+      <h3 className="font-semibold text-gray-800 dark:text-gray-100 mb-4 text-lg flex items-center gap-2">
+        <Compass size={20} className="text-purple-600 dark:text-purple-400" />
         Bem-vindo(a)! Compartilhe um sentimento ou tente uma sugestão:
       </h3>
       <div className="flex flex-wrap gap-2">
-        {feelings.map((feeling, index) => (
+        {feelings.slice(0, 15).map((feeling, index) => (
           <button
             key={index}
             onClick={() => onFeelingSelect(feeling)}
-            className="px-3 py-1.5 bg-purple-100 text-purple-800 rounded-full text-sm font-medium hover:bg-purple-200 hover:text-purple-900 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="px-3 py-1.5 bg-purple-100 text-purple-800 dark:bg-slate-700 dark:text-purple-300 rounded-full text-sm font-medium hover:bg-purple-200 dark:hover:bg-slate-600 hover:text-purple-900 transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
           >
             {feeling}
           </button>

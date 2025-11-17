@@ -17,19 +17,20 @@ const SearchForm: React.FC<SearchFormProps> = ({ feeling, setFeeling, handleSear
   const atLimit = plan === 'FREE' && searchCount >= searchLimit;
 
   const handleUpgradeClick = () => {
-    document.getElementById('plan-selector')?.scrollIntoView({ behavior: 'smooth' });
+    // This is a simple way to navigate. In a more complex app, this could be a router or state change.
+    alert("Por favor, navegue até a aba 'Ajustes' para ver os planos.");
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
-      <label className="block text-gray-700 font-semibold mb-3 text-lg">
+    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-6 mb-6">
+      <label className="block text-gray-700 dark:text-gray-200 font-semibold mb-3 text-lg">
         Como você está se sentindo agora?
       </label>
       <textarea
         value={feeling}
         onChange={(e) => setFeeling(e.target.value)}
         placeholder={atLimit ? "Você atingiu o seu limite de buscas diárias." : "Ex: Estou ansioso com uma entrevista amanhã..."}
-        className="w-full p-4 border-2 border-gray-200 rounded-xl focus:border-purple-400 focus:outline-none resize-none h-32 text-gray-700 transition-colors disabled:bg-gray-100 disabled:cursor-not-allowed"
+        className="w-full p-4 border-2 border-gray-200 dark:border-slate-600 bg-white dark:bg-slate-700 rounded-xl focus:border-purple-400 focus:outline-none resize-none h-32 text-gray-700 dark:text-gray-200 transition-colors disabled:bg-gray-100 dark:disabled:bg-slate-700/50 disabled:cursor-not-allowed"
         onKeyPress={(e) => {
           if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
@@ -40,7 +41,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ feeling, setFeeling, handleSear
       />
       
       {plan === 'FREE' && (
-        <div className="text-sm text-gray-500 mt-2 text-right">
+        <div className="text-sm text-gray-500 dark:text-gray-400 mt-2 text-right">
           {atLimit 
             ? <span className="text-red-500 font-semibold">Limite de buscas atingido.</span>
             : `Você tem ${searchLimit - searchCount} buscas restantes.`
@@ -62,7 +63,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ feeling, setFeeling, handleSear
           ) : atLimit ? (
             <>
                 <ArrowUpCircle size={20} />
-                Fazer Upgrade
+                Ver Planos
             </>
           ) : (
             <>
@@ -73,7 +74,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ feeling, setFeeling, handleSear
         </button>
         <button
           onClick={toggleHistory}
-          className="bg-gray-100 text-gray-700 py-3 px-4 rounded-xl hover:bg-gray-200 transition-all"
+          className="bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-200 py-3 px-4 rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-all"
           aria-label="Histórico de Buscas"
         >
           <History size={20} />

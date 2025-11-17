@@ -3,13 +3,13 @@ import React from 'react';
 const Footer: React.FC = () => {
   return (
     <footer className="text-center py-6 mt-8">
-      <p className="text-gray-500 text-sm">
+      <p className="text-gray-500 dark:text-gray-400 text-sm">
         Powered by{' '}
         <a 
           href="https://ai.google.dev/gemini-api" 
           target="_blank" 
           rel="noopener noreferrer" 
-          className="font-semibold text-purple-600 hover:underline"
+          className="font-semibold text-purple-600 dark:text-purple-400 hover:underline"
         >
           Google Gemini
         </a>
